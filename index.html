@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="myApp" ng-controller="alertController">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.js"></script>
+    <script src="./js/alert.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<body>
+    <div class="main" id="mainpage">
+        <h2>Angular Modal View</h2>
+        <button class="alertbtn" ng-click="openModal()">Click to open Alert</button>
+    </div>
+
+    <div class="modalview container" id="modalview">
+        <div class="header">
+            <div class="modalHeader row">
+                <label class="modallabel col-md-8">Alerts</label>
+                <div class="close col-md-2" ng-click="closeModal()">
+                    <img src="./img/closeicon.PNG">
+                </div>
+            </div>
+            <div class="navbar" id="navbar">
+                <nav>
+                    <a href="#ImmunizationAlerts" class="tabs active ImmunizationAlerts">Immunization Alerts</a>
+                    <a href="#LabAlerts" class="tabs LabAlerts">Lab Alerts</a>
+                    <a href="#DIAlerts" class="tabs DIAlerts">DI Alerts</a>
+                    <a href="#ProcedureAlerts" class="tabs ProcedureAlerts">Procedure Alerts</a>
+                    <a href="#RXSpecificAlerts" class="tabs RXSpecificAlerts">RX Specific Alerts</a>
+                    <a href="#DXSpecificAlerts" class="tabs DXSpecificAlerts">DX Specific Alerts</a>
+                    <a href="#PatientSpecificAlerts" class="tabs PatientSpecificAlerts">Patient Specific Alerts</a>
+                </nav>
+            </div>
+        </div>
+        <div class="modalbody row" id="ImmunizationAlerts">
+            <div class="leftbody col-md-7">
+                <div class="heading" style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                    <div class="pointer"></div>
+                    <label>Immunization Alerts</label>
+                </div>
+                <div class="subhead row">
+                    <div class="search col-md-9" style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                        <label>Find</label>
+                        <input type="text" class="searchbox" ng-model="searchText">
+                    </div>
+                    <div class="col-md-3">
+                        <button ng-click="remove()">Delete</button>
+                    </div>
+                </div>
+                <div class="tabledata" id="ImmunizationAlerts">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="checkbox" ng-model="select" ng-click="selectall($index)"></th>
+                                <th scope="col"> 
+                                    <a href="#" ng-click="orderByField = 'name'; reverseSort = !reverseSort">
+                                    Name<span ng-show="orderByField == 'name'"><span ng-show="!reverseSort"></span>
+                                     <span ng-show="reverseSort"></span></span>
+                                    </a>
+                                </th>
+                                <th scope="col">
+                                    <a href="#" ng-click="orderByField = 'description'; reverseSort = !reverseSort">
+                                        Description<span ng-show="orderByField == 'description'"><span ng-show="!reverseSort"></span>
+                                        <span ng-show="reverseSort"></span></span>
+                                        </a>
+                                </th>
+                                <th scope="col">
+                                    <a href="#" ng-click="orderByField = 'webReference'; reverseSort = !reverseSort">
+                                        webReference<span ng-show="orderByField == 'webReference'"><span ng-show="!reverseSort"></span>
+                                        <span ng-show="reverseSort"></span></span>
+                                        </a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in tdata | orderBy: orderByField :reverseSort | filter:searchText">
+                                <td><input type="checkbox" ng-model="select" ng-click="select($index)"></td>
+                                <td>{{x.name}}</td>
+                                <td>{{x.description}}</td>
+                                <td>{{x.webReference}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modalfooterleft">
+                    <div style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                        <span><strong>Total Results : {{tdata.length }} </strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="rightbody col-md-5">
+                <form ng-submit="submitData(name,desc,webRef)">
+                    <div class="insertName row" style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                        <label class="col-md-3">Name</label>
+                        <input type="text" ng-model="name" class="col-md-6">
+                    </div>
+                    <div class="insertDesc row" style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                        <label class="col-md-3">Description</label>
+                        <input type="text" ng-model="desc" class="col-md-6">
+                    </div>
+                    <div class="insertWebRef row" style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                        <label class="col-md-3">Web Ref.</label>
+                        <input type="text" ng-model="webRef" class="col-md-6">
+                    </div>
+                    <input type="submit" value="Add" class="submitbtn">
+                </form>
+                <label class="msg" id="msg">{{msg}}</label>
+                <div class="rightfooter row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                        <button class="cancelbtn" ng-click="closeModal()">Cancel</button>
+                        <button class="okbtn" ng-click="closeModal()">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
