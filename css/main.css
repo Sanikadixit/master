@@ -1,0 +1,136 @@
+.main{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.alertbtn{
+    background-color: #2b91d9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+.modalview{
+    display: none;
+    height: 600px;
+    width: 80%;
+    border: 1px solid gray;
+    box-shadow: 0px 3px 10px 2px gray;
+    margin-left: 10%;
+    background-color: #f5f5f4;
+    margin-bottom: 40px;
+}
+.modalHeader{
+    background-color: #2b91d9;
+    height: 30px;
+}
+.modalHeader label{
+    color: white;
+    padding: 2px;
+    font-size: large;
+    margin-left: 10px;
+}
+.modalHeader .close img{
+    margin-left: 90%;
+    width: 30px;
+}
+.header{
+    border-bottom: 2px solid #2b91d9;
+    height: 70px;
+}
+.header .navbar{
+    margin-left: 22%;
+    padding-bottom: 0%;
+    margin-top: 15px;
+}
+.header .navbar a{
+    text-decoration: none;
+    padding: 5px;
+    background-color: #2b91d9;
+    color: white;
+    margin-right: -5px;
+    border-left: 1px solid gray;
+    font-weight: 400;
+    
+}
+.active{
+    background-color: #f5f5f4 !important;
+    color: #2b91d9 !important;
+    border: 2px solid #2b91d9 !important;
+    border-bottom: 2px solid #f5f5f4 !important;
+
+}
+.leftbody{
+    border-right: 2px solid rgb(235, 234, 234);
+    margin-top: 10px !important;
+}
+.heading{
+    margin-top: 5px;
+}
+.pointer{
+    width: 10px !important;
+	height: 12px;
+    float:left !important;
+    margin-right: 10px;
+	transform: skew(340deg);
+	background:#2b91d9
+}
+.heading label{
+    color: #2b91d9;
+    font-weight: 500;
+    font-size: large;
+}
+.subhead .searchbox{
+    margin-left: 10px;
+    height: 30px;
+    width: 60%;
+    border: 1px solid rgb(198, 198, 198);
+}
+.subhead button{
+    float: right;
+    padding: 3px 20px;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+}
+table{
+    margin-top: 10px;
+    background-color: white !important;
+    height: 385px;
+    display: block;    
+    overflow-y: scroll;
+    
+}
+.tabledata thead{
+    background-color: #cee5f2;
+    text-decoration: none;
+}
+.rightbody{
+    margin-top: 20px;
+}
+.rightbody label{
+    padding: 10px;
+}
+.rightbody .submitbtn{
+    float: right;
+    margin-right: 105px;
+    padding: 5px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+}
+.msg{
+    color: rgb(4, 181, 4);
+}
+.rightfooter{
+    margin-top: 55%;
+}
+.cancelbtn {
+    padding: 5px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+}
+.okbtn {
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+}
